@@ -25,12 +25,33 @@ class User extends Authenticatable
         'email',
         'password',
         'is_admin',
+        'balance',
+        'subscription_type',
+        'subscription_expires_at'
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+        'balance' => 'decimal:2',
+        'subscription_expires_at' => 'datetime'
     ];
 
     public function Loans()
     {
         return $this->hasMany(Loan::class);
     }
+
+    public function purchases()
+    {
+        return $this->hasMany(BookPurchase::class);
+    }
+
+    public function hasPurchasedBook($bookId)
+    {
+        return $this->purchases()->where('book_id', $bookId)->exists();
+    }
+
     public function canAccessPanel(Panel $panel): bool
     {
         return $this->isAdmin == true;

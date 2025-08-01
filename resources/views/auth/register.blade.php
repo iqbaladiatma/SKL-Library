@@ -1,5 +1,7 @@
-<x-guest-layout>
-    <div class="bg-gradient-to-br from-emerald-900 to-teal-900 min-h-screen flex items-center">
+@extends('layouts.app')
+
+@section('content')
+<div class="bg-gradient-to-br from-emerald-900 to-teal-900 min-h-screen flex items-center">
         <div class="max-w-md w-full mx-auto p-6 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 shadow-xl">
             <form method="POST" action="{{ route('register') }}" class="space-y-6">
                 @csrf
@@ -12,7 +14,7 @@
 
                 <!-- Name -->
                 <div>
-                    <x-input-label for="name" :value="__('Name')" class="text-emerald-200" />
+                    <x-input-label for="name" :value="__('Name')" class="text-white" />
                     <div class="relative mt-1">
                         <x-text-input 
                             id="name" 
@@ -35,7 +37,7 @@
 
                 <!-- Email -->
                 <div>
-                    <x-input-label for="email" :value="__('Email')" class="text-emerald-200" />
+                    <x-input-label for="email" :value="__('Email')" class="text-white" />
                     <div class="relative mt-1">
                         <x-text-input 
                             id="email" 
@@ -57,7 +59,7 @@
 
                 <!-- Password -->
                 <div>
-                    <x-input-label for="password" :value="__('Password')" class="text-emerald-200" />
+                    <x-input-label for="password" :value="__('Password')" class="text-white" />
                     <div class="relative mt-1">
                         <x-text-input 
                             id="password" 
@@ -78,7 +80,7 @@
 
                 <!-- Confirm Password -->
                 <div>
-                    <x-input-label for="password_confirmation" :value="__('Confirm Password')" class="text-emerald-200" />
+                    <x-input-label for="password_confirmation" :value="__('Confirm Password')" class="text-white" />
                     <div class="relative mt-1">
                         <x-text-input 
                             id="password_confirmation" 
@@ -112,4 +114,4 @@
             </form>
         </div>
     </div>
-</x-guest-layout>
+@endsection

@@ -11,46 +11,41 @@
 
             <!-- Desktop Navigation -->
             <div class="hidden sm:flex space-x-8">
-                <x-nav-link 
-                    :href="route('home')" 
+                <x-nav-link
+                    :href="route('home')"
                     :active="request()->routeIs('home')"
-                    class="text-white hover:text-emerald-300 border-b-2 border-transparent hover:border-emerald-400 transition-all"
-                >
+                    class="text-white border-b-2 border-transparent hover:border-emerald-400 transition-all duration-300">
                     Home
                 </x-nav-link>
-                <x-nav-link 
-                    :href="route('books.index')" 
+                <x-nav-link
+                    :href="route('books.index')"
                     :active="request()->routeIs('books.index')"
-                    class="text-white hover:text-emerald-300 border-b-2 border-transparent hover:border-emerald-400 transition-all"
-                >
+                    class="text-white border-b-2 border-transparent hover:border-emerald-400 transition-all duration-300">
                     Books
                 </x-nav-link>
-                <x-nav-link 
-                    :href="route('about')" 
+                <x-nav-link
+                    :href="route('about')"
                     :active="request()->routeIs('about')"
-                    class="text-white hover:text-emerald-300 border-b-2 border-transparent hover:border-emerald-400 transition-all"
-                >
+                    class="text-white border-b-2 border-transparent hover:border-emerald-400 transition-all duration-300">
                     About Us
                 </x-nav-link>
-                <x-nav-link 
-                    :href="route('contact')" 
+                <x-nav-link
+                    :href="route('contact')"
                     :active="request()->routeIs('contact')"
-                    class="text-white hover:text-emerald-300 border-b-2 border-transparent hover:border-emerald-400 transition-all"
-                >
+                    class="text-white border-b-2 border-transparent hover:border-emerald-400 transition-all duration-300">
                     Contact Us
                 </x-nav-link>
                 @auth
-                <x-nav-link 
-                    :href="route('dashboard')" 
+                <x-nav-link
+                    :href="route('dashboard')"
                     :active="request()->routeIs('dashboard')"
-                    class="text-white hover:text-emerald-300 border-b-2 border-transparent hover:border-emerald-400 transition-all"
-                >
+                    class="text-white border-b-2 border-transparent hover:border-emerald-400 transition-all duration-300">
                     Dashboard
                 </x-nav-link>
                 @endauth
                 @auth
                 @if (auth()->user()->hasRole('admin'))
-                <a href="/admin" class="flex items-center px-3 py-2 text-sm font-medium text-red-400 hover:text-red-300 transition-colors">
+                <a href="/admin" class="flex items-center px-3 py-2 text-sm font-medium text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-lg transition-all duration-300">
                     Admin Panel
                 </a>
                 @endif
@@ -65,7 +60,7 @@
                         <button class="flex items-center space-x-2 px-4 py-2 border border-emerald-400 rounded-full bg-emerald-500/10 hover:bg-emerald-500/20 transition-colors">
                             <span class="text-emerald-100">{{ Auth::user()->name }}</span>
                             <svg class="w-4 h-4 text-emerald-300" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                         </button>
                     </x-slot>
@@ -76,11 +71,10 @@
                         </x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <x-dropdown-link 
+                            <x-dropdown-link
                                 :href="route('logout')"
                                 class="text-gray-700 hover:bg-gray-50"
-                                onclick="event.preventDefault(); this.closest('form').submit();"
-                            >
+                                onclick="event.preventDefault(); this.closest('form').submit();">
                                 Log Out
                             </x-dropdown-link>
                         </form>
@@ -115,20 +109,20 @@
     <!-- Mobile Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="sm:hidden bg-emerald-800/95 backdrop-blur-lg">
         <div class="pt-2 pb-3 space-y-1 px-4">
-            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')" class="text-white hover:text-emerald-300">
+            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')" class="text-white ">
                 Home
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('books.index')" :active="request()->routeIs('books.index')" class="text-white hover:text-emerald-300">
+            <x-responsive-nav-link :href="route('books.index')" :active="request()->routeIs('books.index')" class="text-white ">
                 Books
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')" class="text-white hover:text-emerald-300">
+            <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')" class="text-white ">
                 About Us
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('contact')" :active="request()->routeIs('contact')" class="text-white hover:text-emerald-300">
+            <x-responsive-nav-link :href="route('contact')" :active="request()->routeIs('contact')" class="text-white ">
                 Contact Us
             </x-responsive-nav-link>
             @auth
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white hover:text-emerald-300">
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white ">
                 Dashboard
             </x-responsive-nav-link>
             @endauth
@@ -154,11 +148,10 @@
                 </x-responsive-nav-link>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <x-responsive-nav-link 
+                    <x-responsive-nav-link
                         :href="route('logout')"
                         class="text-emerald-300 hover:text-white"
-                        onclick="event.preventDefault(); this.closest('form').submit();"
-                    >
+                        onclick="event.preventDefault(); this.closest('form').submit();">
                         Log Out
                     </x-responsive-nav-link>
                 </form>
